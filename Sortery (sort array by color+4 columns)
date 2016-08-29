@@ -1,0 +1,14 @@
+function sortery() {
+var ss = SpreadsheetApp.getActiveSpreadsheet();
+var sheetName = ss.getActiveSheet().getSheetName();
+var sheet = ss.getActiveSheet();
+var startRow = 2;
+var maxRows = sheet.getMaxRows();
+var maxColumns = sheet.getMaxColumns();
+var SortRange = sheet.getRange(startRow,1,maxRows-1,maxColumns);
+var markRange = sheet.getRange(startRow,21,maxRows-1,1);
+  
+markRange.setValues(markRange.getBackgrounds());
+  
+if ( sheetName == 'Sheet89' ) {
+ SortRange.sort([{column: 21, ascending: true}, {column: 12, ascending: true}, {column: 11, ascending: true}, {column: 15, ascending: true}, {column: 13, ascending: true}])}};
