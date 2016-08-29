@@ -1,30 +1,39 @@
 function sortery() {
 var ss = SpreadsheetApp.getActiveSpreadsheet();
+// Get sheetname
 var sheetName = ss.getActiveSheet().getSheetName();
 var sheet = ss.getActiveSheet();
+// Start sorting from row #
 var startRow = 2;
 var maxRows = sheet.getMaxRows();
 var maxColumns = sheet.getMaxColumns();
 var SortRange = sheet.getRange(startRow,1,maxRows-1,maxColumns);
+// 21 is column #
 var markRange = sheet.getRange(startRow,21,maxRows-1,1);
   
+// This piece allows sorting by background color 
+// Here you can change hex numbers for colors and their replacement
   markRange.setValues(markRange.getBackgrounds());
+  
   var data = markRange.getValues();{
-
   for (var i=0; i < data.length; i++) {
     if (data[i][0] == "#cccccc") {
       data[i][0] = "1 Archive";
+    } else if (data[i][0] == "#00ff00") {
+      data[i][0] = "2 Activated";
     } else if (data[i][0] == "#ffffff") {
-      data[i][0] = "2 Process";
+      data[i][0] = "3 Process";
     } else if (data[i][0] == "#ff0000") {
-      data[i][0] = "3 Missed";
+      data[i][0] = "4 Missed";
     } else if (data[i][0] == "#fff2cc") {
-      data[i][0] = "4 New";
+      data[i][0] = "5 New";
     } else {data[i][0] = "5 Else"}
   }
   markRange.setValues(data);
 }
+// Hides markRange column
 sheet.hideColumn(markRange);
   
-if ( sheetName == 'Sheet89' ) {
+// Check sheetname and sort
+if ( sheetName == 'P2P_Pipeline' ) {
  SortRange.sort([{column: 21, ascending: true}, {column: 12, ascending: true}, {column: 11, ascending: true}, {column: 15, ascending: true}, {column: 13, ascending: true}])}};
