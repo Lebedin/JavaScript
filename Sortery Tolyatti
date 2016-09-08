@@ -1,0 +1,23 @@
+function sortery() {
+var ss = SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets/d/1FUjEo05fP3UZUgPoOtvmShmbrl06mGeR8iORajoLDo4/edit');
+var sheet = ss.getSheetByName('Responses');
+// Start sorting from row #
+var targetColumn = sheet.getRange('J2:J');
+var data = targetColumn.getValues();
+var count = 0;
+for(var i = 0; i < data.length; ++i){
+    if(data[i] == 'Активирован')
+        count++;
+}
+var startRow = count;
+var maxRows = sheet.getMaxRows();
+var maxColumns = sheet.getMaxColumns();
+var sortRange = sheet.getRange(startRow,1,maxRows-startRow,maxColumns);
+
+  
+// Sort
+{sortRange.sort([{column: 10, ascending: true}, {column: 9, ascending: false}, {column: 8, ascending: false}, {column: 7, ascending: true}])};
+
+// Hide active
+var afterSortRange = sheet.getRange(2,1,startRow,maxColumns);
+sheet.hideRow(afterSortRange)};
