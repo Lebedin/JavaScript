@@ -1,0 +1,48 @@
+// E-mail participants
+function mailer() {
+var ss = SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets/d/1FUjEo05fP3UZUgPoOtvmShmbrl06mGeR8iORajoLDo4/edit');
+var sheet = ss.getSheetByName('Responses');
+  
+// Define ranges
+var maxRows = sheet.getMaxRows();
+var applicationStatus = sheet.getRange(2,8,maxRows-1,3);
+  
+// Send e-mails on doc audit
+var applicationData = applicationStatus.getValues();
+var count1 = 0;
+for(var i = 0; i < applicationData.length; ++i){
+    if(applicationData[i][0] == "Проверить документы")
+        count1++;
+}
+var rowsToCheck1 = count1;
+  if (rowsToCheck > '0') {
+MailApp.sendEmail("lebedin@uber.com, pyakim@ext.uber.com, ifrey@ext.uber.com",
+                   "Проверить документы водителей в Тольятти",
+                  "Есть строки для проверки документов в файле Тольятти - https://docs.google.com/spreadsheets/d/1FUjEo05fP3UZUgPoOtvmShmbrl06mGeR8iORajoLDo4/edit")};  
+
+// Send e-mails on calls
+var applicationData = applicationStatus.getValues();
+var count2 = 0;
+for(var i = 0; i < applicationData.length; ++i){
+    if(applicationData[i][1] == "Позвонить")
+        count2++;
+}
+var rowsToCheck = count2;
+  if (rowsToCheck > '0') {
+MailApp.sendEmail("lebedin@uber.com, aevsee@ext.uber.com",
+                   "Позвонить водителям в Тольятти",
+                  "Есть строки для обзвона в файле Тольятти - https://docs.google.com/spreadsheets/d/1FUjEo05fP3UZUgPoOtvmShmbrl06mGeR8iORajoLDo4/edit")};   
+  
+// Send e-mails on activation
+var applicationData = applicationStatus.getValues();
+var count3 = 0;
+for(var i = 0; i < applicationData.length; ++i){
+    if(applicationData[i][2] == "Требуется активация")
+        count3++;
+}
+var rowsToCheck = count3;
+  if (rowsToCheck > '0') {
+MailApp.sendEmail("lebedin@uber.com, pyakim@ext.uber.com, ifrey@ext.uber.com",
+                   "Активировать водителей в Тольятти",
+                  "Есть строки для активации в файле Тольятти - https://docs.google.com/spreadsheets/d/1FUjEo05fP3UZUgPoOtvmShmbrl06mGeR8iORajoLDo4/edit")};  
+};
