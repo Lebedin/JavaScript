@@ -1,0 +1,39 @@
+  
+// Status replacement
+function statusReplacer() {
+var ss = SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets/d/1FUjEo05fP3UZUgPoOtvmShmbrl06mGeR8iORajoLDo4/edit');
+var sheet = ss.getSheetByName('Responses');
+  
+// Define ranges
+var maxRows = sheet.getMaxRows();
+var applicationStatus = sheet.getRange(2,4,maxRows-1,7);
+
+// Replacement
+// Application status + doc audit
+  var applicationData = applicationStatus.getValues();{
+    for (var i=0; i < applicationData.length; i++) {
+    if (applicationData[i][0] != "" && applicationData[i][4] === "") {
+      applicationData[i][4] = "Проверить документы";
+    } else {}
+  }
+  applicationStatus.setValues(applicationData);
+  }
+// Docs status + call action
+  var applicationData = applicationStatus.getValues();{
+    for (var i=0; i < applicationData.length; i++) {
+    if (applicationData[i][4] == "Ок" && applicationData[i][5] === "") {
+      applicationData[i][5] = "Позвонить";
+    } else {}
+  }
+  applicationStatus.setValues(applicationData);
+  }
+// Call status + activation
+  var applicationData = applicationStatus.getValues();{
+    for (var i=0; i < applicationData.length; i++) {
+    if (applicationData[i][5] == "Ок" && applicationData[i][6] === "") {
+      applicationData[i][6] = "Требуется активация";
+    } else {}
+  }
+  applicationStatus.setValues(applicationData);
+  }
+};
