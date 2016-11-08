@@ -1,0 +1,21 @@
+function onEdit(e) {
+    var sheetName = e.source.getActiveSheet().getSheetName();
+    var sheet = e.source.getActiveSheet();
+    var idCol = e.range.getColumn();
+    var idRow = e.range.getRow();
+    
+var containingValue = 'uuid'   
+var range = sheet.getRange(1,2,sheet.getMaxRows(),1)
+var values = range.getValues();
+var i = []; 
+for (var y = 0; y < values.length; y++) {
+   if(values[y] == containingValue){
+      i.push(y);
+   }
+}
+var Row = Number(i)+Number(range.getRow());
+
+  if ( idCol == 2 && sheetName == 'Form Responses 1' && idRow > Row ) {
+    sheet.getRange(idRow, idCol - 1).setValue(Utilities.formatDate(new Date(),"GMT+3", "MM/dd/yyyy HH:mm:ss").toString());
+    }
+};
