@@ -1,6 +1,6 @@
 // E-mail participants
 function mailer() {
-var ss = SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets/d/1FUjEo05fP3UZUgPoOtvmShmbrl06mGeR8iORajoLDo4/edit');
+var ss = SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets//edit');
 var sheet = ss.getSheetByName('Responses');
   
 // Define ranges
