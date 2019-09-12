@@ -18,7 +18,7 @@ var rowsToCheck1 = count1;
   if (rowsToCheck > '0') {
 MailApp.sendEmail("lebedin@uber.com, pyakim@ext.uber.com, ifrey@ext.uber.com",
                    "Проверить документы водителей в Тольятти",
-                  "Есть строки для проверки документов в файле Тольятти - https://docs.google.com/spreadsheets/d/1FUjEo05fP3UZUgPoOtvmShmbrl06mGeR8iORajoLDo4/edit")};  
+                  "Есть строки для проверки документов в файле Тольятти - https://docs.google.com/spreadsheets//edit")};  
 
 // Send e-mails on calls
 var applicationData = applicationStatus.getValues();
@@ -31,7 +31,7 @@ var rowsToCheck = count2;
   if (rowsToCheck > '0') {
 MailApp.sendEmail("lebedin@uber.com, aevsee@ext.uber.com",
                    "Позвонить водителям в Тольятти",
-                  "Есть строки для обзвона в файле Тольятти - https://docs.google.com/spreadsheets/d/1FUjEo05fP3UZUgPoOtvmShmbrl06mGeR8iORajoLDo4/edit")};   
+                  "Есть строки для обзвона в файле Тольятти - https://docs.google.com/spreadsheets//edit")};   
   
 // Send e-mails on activation
 var applicationData = applicationStatus.getValues();
@@ -44,5 +44,5 @@ var rowsToCheck = count3;
   if (rowsToCheck > '0') {
 MailApp.sendEmail("lebedin@uber.com, pyakim@ext.uber.com, ifrey@ext.uber.com",
                    "Активировать водителей в Тольятти",
-                  "Есть строки для активации в файле Тольятти - https://docs.google.com/spreadsheets/d/1FUjEo05fP3UZUgPoOtvmShmbrl06mGeR8iORajoLDo4/edit")};  
+                  "Есть строки для активации в файле Тольятти - https://docs.google.com/spreadsheets//edit")};  
 };
